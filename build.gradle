@@ -35,6 +35,11 @@ dependencies {
     compile group: 'progress.message', name: 'sonic_Client', version: '7.5'
 
 
+    compile "org.apache.cxf:cxf-rt-frontend-jaxws:3.3.7"
+//    compile "org.apache.cxf:cxf-rt-transports-http:$cxfVersion"
+    // https://mvnrepository.com/artifact/org.springframework/spring-oxm
+    compile group: 'org.springframework', name: 'spring-oxm', version: '5.2.7.RELEASE'
+
     testImplementation 'io.projectreactor:reactor-test'
 }
 
