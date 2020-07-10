@@ -1,0 +1,8 @@
+spring.main.web-application-type: none
+
+sonic:
+  broker_url: "tcp://localhost:2506"
+  cache_size: 100
+  request_queue: "test"
+  response_queue: "test"
+  correlation_id: "xmlCorId"

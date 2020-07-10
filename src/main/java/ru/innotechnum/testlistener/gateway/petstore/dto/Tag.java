@@ -1,28 +1,24 @@
-package ru.innotechnum.testlistener.gateway.petstore.model;
+package ru.innotechnum.testlistener.gateway.petstore.dto;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 
 /**
- * Category
+ * Tag
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-07-08T16:17:15.730+03:00")
 
-public class Category   {
+public class Tag   {
   @JsonProperty("id")
   private Long id = null;
 
   @JsonProperty("name")
   private String name = null;
 
-  public Category id(Long id) {
+  public Tag id(Long id) {
     this.id = id;
     return this;
   }
@@ -42,7 +38,7 @@ public class Category   {
     this.id = id;
   }
 
-  public Category name(String name) {
+  public Tag name(String name) {
     this.name = name;
     return this;
   }
@@ -71,9 +67,9 @@ public class Category   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Category category = (Category) o;
-    return Objects.equals(this.id, category.id) &&
-        Objects.equals(this.name, category.name);
+    Tag tag = (Tag) o;
+    return Objects.equals(this.id, tag.id) &&
+        Objects.equals(this.name, tag.name);
   }
 
   @Override
@@ -84,7 +80,7 @@ public class Category   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Category {\n");
+    sb.append("class Tag {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -1,11 +1,10 @@
 package ru.innotechnum.testlistener.gateway.petstore.api;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import ru.innotechnum.testlistener.gateway.petstore.model.Pet;
+import ru.innotechnum.testlistener.gateway.petstore.dto.Pet;
 
 import java.util.List;
 import java.util.stream.Collectors;

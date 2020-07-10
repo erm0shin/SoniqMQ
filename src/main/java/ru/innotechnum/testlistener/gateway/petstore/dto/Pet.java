@@ -1,15 +1,13 @@
-package ru.innotechnum.testlistener.gateway.petstore.model;
+package ru.innotechnum.testlistener.gateway.petstore.dto;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import ru.innotechnum.testlistener.gateway.petstore.model.Category;
-import ru.innotechnum.testlistener.gateway.petstore.model.Tag;
+
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;

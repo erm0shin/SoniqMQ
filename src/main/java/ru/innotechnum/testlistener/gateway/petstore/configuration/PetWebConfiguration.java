@@ -1,4 +1,4 @@
-package ru.innotechnum.testlistener.gateway.petstore.api;
+package ru.innotechnum.testlistener.gateway.petstore.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

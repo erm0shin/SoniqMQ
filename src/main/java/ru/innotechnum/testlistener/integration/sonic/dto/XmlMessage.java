@@ -1,4 +1,4 @@
-package ru.innotechnum.testlistener.dto;
+package ru.innotechnum.testlistener.integration.sonic.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

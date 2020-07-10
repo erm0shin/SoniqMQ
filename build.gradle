@@ -9,6 +9,11 @@ group = 'ru.innotechnum'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+ext {
+    springVersion = "5.2.7.RELEASE"
+    sonicMQVersion = "7.5"
+}
+
 repositories {
     mavenCentral()
     maven {
@@ -24,21 +29,14 @@ dependencies {
 
     swaggerCodegen 'io.swagger:swagger-codegen-cli:2.4.2'
     implementation 'io.swagger:swagger-annotations:1.5.22'
+    implementation "javax.validation:validation-api:2.0.1.Final"
 
-//    implementation 'org.springframework.boot:spring-boot-starter-web:2.1.3.RELEASE'
-//    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.1.1.RELEASE'
-    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    implementation "org.apache.cxf:cxf-rt-frontend-jaxws:3.3.7"
+    implementation "org.springframework:spring-oxm:${springVersion}"
 
-    compile 'org.springframework.integration:spring-integration-core:5.1.1.RELEASE'
-    compile 'org.springframework.integration:spring-integration-jms:5.1.1.RELEASE'
-    compile 'org.springframework:spring-jms:5.2.7.RELEASE'
-    compile group: 'progress.message', name: 'sonic_Client', version: '7.5'
-
-
-    compile "org.apache.cxf:cxf-rt-frontend-jaxws:3.3.7"
-//    compile "org.apache.cxf:cxf-rt-transports-http:$cxfVersion"
-    // https://mvnrepository.com/artifact/org.springframework/spring-oxm
-    compile group: 'org.springframework', name: 'spring-oxm', version: '5.2.7.RELEASE'
+    implementation "javax.jms:javax.jms-api:2.0.1"
+    implementation "org.springframework:spring-jms:${springVersion}"
+    implementation "progress.message:sonic_Client:${sonicMQVersion}"
 
     testImplementation 'io.projectreactor:reactor-test'
 }
@@ -53,7 +51,6 @@ swaggerSources {
             additionalProperties = [
                     "modelPackage": "ru.innotechnum.testlistener.gateway.petstore.model",
                     "apiPackage"  : "ru.innotechnum.testlistener.gateway.petstore.api"]
-//            configFile = file("$rootDir/java-spring-config.json")
             components = [apis: true, models: true, apiTests: false]
         }
     }
