@@ -22,14 +22,14 @@ public class PetService {
         this.petGateway = petGateway;
     }
 
-    @PostConstruct
-    public void test() {
-        petGateway.findPetsByStatus(Pet.StatusEnum.AVAILABLE)
-                .doOnNext(pets ->
-                        LOG.info(
-                                "Received pets, one of their is: {}",
-                                pets.get(new Random().nextInt((pets.size()))))
-                )
-                .subscribe();
-    }
+//    @PostConstruct
+//    public void test() {
+//        petGateway.findPetsByStatus(Pet.StatusEnum.AVAILABLE)
+//                .doOnNext(pets ->
+//                        LOG.info(
+//                                "Received pets, one of their is: {}",
+//                                pets.get(new Random().nextInt((pets.size()))))
+//                )
+//                .subscribe();
+//    }
 }

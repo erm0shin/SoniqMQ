@@ -39,6 +39,8 @@ dependencies {
     implementation "progress.message:sonic_Client:${sonicMQVersion}"
 
     testImplementation 'io.projectreactor:reactor-test'
+
+    testImplementation 'org.apache.activemq:activemq-core:5.7.0'
 }
 
 swaggerSources {

@@ -1,0 +1,10 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+sonic:
+  broker_url: "vm://localhost?broker.persistent=false"
+  cache_size: 1
+  request_queue: "testResponseQueue"
+  response_queue: "testResponseQueue"
+  correlation_id: "testCorId"

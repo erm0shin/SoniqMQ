@@ -1,5 +1,6 @@
 package ru.innotechnum.testlistener.integration.sonic.configuration;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
@@ -14,6 +15,7 @@ import org.springframework.jms.support.destination.DynamicDestinationResolver;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import progress.message.jclient.QueueConnectionFactory;
 import ru.innotechnum.testlistener.integration.sonic.dto.XmlMessage;
+import ru.innotechnum.testlistener.integration.sonic.listener.SonicListener;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
@@ -21,8 +23,9 @@ import javax.jms.Queue;
 import javax.jms.Session;
 import java.util.HashMap;
 
-@Configuration
 @EnableJms
+@Configuration
+@EnableConfigurationProperties(SonicIntegrationProperties.class)
 public class SonicIntegrationConfiguration {
 
     public static final String SONIC_LOAN_RESPONSES_QUEUE = "sonic_loan_responses_queue";
@@ -82,6 +85,11 @@ public class SonicIntegrationConfiguration {
         final JmsTemplate jmsTemplate = new JmsTemplate(sonicConnectionFactory);
         jmsTemplate.setMessageConverter(sonicMessageConverter);
         return jmsTemplate;
+    }
+
+    @Bean
+    public SonicListener sonicListener() {
+        return new SonicListener();
     }
 
     private Jaxb2Marshaller buildXMLMarshaller() {

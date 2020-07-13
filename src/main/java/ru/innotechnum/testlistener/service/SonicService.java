@@ -21,21 +21,21 @@ public class SonicService {
         this.sonicIntegrationProperties = sonicIntegrationProperties;
     }
 
-    @PostConstruct
-    public void test() {
-        final XmlMessage xmlMessage = new XmlMessage();
-        xmlMessage.setName("xmlName");
-        xmlMessage.setBalance(new BigDecimal(10));
-        xmlMessage.setDescription("xmlDescription");
-
-        sonicJmsTemplate.convertAndSend(
-                sonicIntegrationProperties.getRequestQueue(),
-                xmlMessage,
-                m -> {
-                    m.setJMSCorrelationID(sonicIntegrationProperties.getCorrelationId());
-                    return m;
-                }
-        );
-    }
+//    @PostConstruct
+//    public void test() {
+//        final XmlMessage xmlMessage = new XmlMessage();
+//        xmlMessage.setName("xmlName");
+//        xmlMessage.setBalance(new BigDecimal(10));
+//        xmlMessage.setDescription("xmlDescription");
+//
+//        sonicJmsTemplate.convertAndSend(
+//                sonicIntegrationProperties.getRequestQueue(),
+//                xmlMessage,
+//                m -> {
+//                    m.setJMSCorrelationID(sonicIntegrationProperties.getCorrelationId());
+//                    return m;
+//                }
+//        );
+//    }
 
 }
