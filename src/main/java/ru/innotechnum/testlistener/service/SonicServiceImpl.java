@@ -6,9 +6,6 @@ import org.springframework.stereotype.Service;
 import ru.innotechnum.testlistener.integration.sonic.configuration.SonicIntegrationProperties;
 import ru.innotechnum.testlistener.integration.sonic.dto.XmlMessage;
 
-import javax.annotation.PostConstruct;
-import java.math.BigDecimal;
-
 @Service
 public class SonicServiceImpl implements SonicService {
 
@@ -32,22 +29,5 @@ public class SonicServiceImpl implements SonicService {
                 }
         );
     }
-
-//    @PostConstruct
-//    public void test() {
-//        final XmlMessage xmlMessage = new XmlMessage();
-//        xmlMessage.setName("xmlName");
-//        xmlMessage.setBalance(new BigDecimal(10));
-//        xmlMessage.setDescription("xmlDescription");
-//
-//        sonicJmsTemplate.convertAndSend(
-//                sonicIntegrationProperties.getRequestQueue(),
-//                xmlMessage,
-//                m -> {
-//                    m.setJMSCorrelationID(sonicIntegrationProperties.getCorrelationId());
-//                    return m;
-//                }
-//        );
-//    }
 
 }
