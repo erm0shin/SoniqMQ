@@ -19,7 +19,6 @@ public class PetGateway {
         this.petWebClient = petWebClient;
     }
 
-
     public Mono<List<Pet>> findPetsByStatus(final Pet.StatusEnum status) {
         return petWebClient.get().uri(uriBuilder -> uriBuilder
                 .path("/findByStatus")

@@ -1,5 +1,7 @@
 spring.main.web-application-type: none
 
+pet_url: "https://petstore.swagger.io/v2/pet"
+
 sonic:
   broker_url: "tcp://localhost:2506"
   cache_size: 100

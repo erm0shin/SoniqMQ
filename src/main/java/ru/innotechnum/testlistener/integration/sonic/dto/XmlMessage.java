@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @XmlRootElement(name = "account")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -41,6 +42,21 @@ public class XmlMessage {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        XmlMessage message = (XmlMessage) o;
+        return Objects.equals(name, message.name) &&
+                Objects.equals(description, message.description) &&
+                Objects.equals(balance, message.balance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, balance);
     }
 
     @Override

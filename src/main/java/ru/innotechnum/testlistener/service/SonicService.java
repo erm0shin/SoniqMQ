@@ -21,6 +21,17 @@ public class SonicService {
         this.sonicIntegrationProperties = sonicIntegrationProperties;
     }
 
+    public void sendResponse(XmlMessage xmlMessage) {
+        sonicJmsTemplate.convertAndSend(
+                sonicIntegrationProperties.getResponseQueue(),
+                xmlMessage,
+                m -> {
+                    m.setJMSCorrelationID(sonicIntegrationProperties.getCorrelationId());
+                    return m;
+                }
+        );
+    }
+
 //    @PostConstruct
 //    public void test() {
 //        final XmlMessage xmlMessage = new XmlMessage();

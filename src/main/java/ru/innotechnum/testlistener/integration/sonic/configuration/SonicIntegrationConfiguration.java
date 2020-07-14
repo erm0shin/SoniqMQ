@@ -15,7 +15,6 @@ import org.springframework.jms.support.destination.DynamicDestinationResolver;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import progress.message.jclient.QueueConnectionFactory;
 import ru.innotechnum.testlistener.integration.sonic.dto.XmlMessage;
-import ru.innotechnum.testlistener.integration.sonic.listener.SonicListener;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
@@ -28,7 +27,7 @@ import java.util.HashMap;
 @EnableConfigurationProperties(SonicIntegrationProperties.class)
 public class SonicIntegrationConfiguration {
 
-    public static final String SONIC_LOAN_RESPONSES_QUEUE = "sonic_loan_responses_queue";
+    public static final String SONIC_LOAN_REQUESTS_QUEUE = "sonic_loan_requests_queue";
 
     @Bean
     public ConnectionFactory sonicConnectionFactory(SonicIntegrationProperties sonicIntegrationProperties) throws JMSException {
@@ -45,8 +44,8 @@ public class SonicIntegrationConfiguration {
         return new DynamicDestinationResolver() {
             @Override
             protected Queue resolveQueue(Session session, String queueName) throws JMSException {
-                if (SONIC_LOAN_RESPONSES_QUEUE.equals(queueName))
-                    return super.resolveQueue(session, sonicIntegrationProperties.getResponseQueue());
+                if (SONIC_LOAN_REQUESTS_QUEUE.equals(queueName))
+                    return super.resolveQueue(session, sonicIntegrationProperties.getRequestQueue());
                 else
                     return super.resolveQueue(session, queueName);
             }
@@ -85,11 +84,6 @@ public class SonicIntegrationConfiguration {
         final JmsTemplate jmsTemplate = new JmsTemplate(sonicConnectionFactory);
         jmsTemplate.setMessageConverter(sonicMessageConverter);
         return jmsTemplate;
-    }
-
-    @Bean
-    public SonicListener sonicListener() {
-        return new SonicListener();
     }
 
     private Jaxb2Marshaller buildXMLMarshaller() {
