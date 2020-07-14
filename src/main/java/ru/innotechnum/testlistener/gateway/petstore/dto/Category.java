@@ -10,8 +10,8 @@ import org.springframework.validation.annotation.Validated;
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-07-08T16:17:15.730+03:00")
-
 public class Category   {
+
   @JsonProperty("id")
   private Long id = null;
 
@@ -98,5 +98,6 @@ public class Category   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
 

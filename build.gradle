@@ -1,13 +1,13 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.1.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
+    id "org.springframework.boot" version "2.3.1.RELEASE"
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
+    id "java"
     id "org.hidetake.swagger.generator" version "2.18.1"
 }
 
-group = 'ru.innotechnum'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+group = "ru.innotechnum"
+version = "0.0.1-SNAPSHOT"
+sourceCompatibility = "11"
 
 ext {
     springVersion = "5.2.7.RELEASE"
@@ -22,13 +22,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
     }
 
-    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.4.2'
-    implementation 'io.swagger:swagger-annotations:1.5.22'
+    swaggerCodegen "io.swagger:swagger-codegen-cli:2.4.2"
+    implementation "io.swagger:swagger-annotations:1.5.22"
     implementation "javax.validation:validation-api:2.0.1.Final"
 
     implementation "org.apache.cxf:cxf-rt-frontend-jaxws:3.3.7"
@@ -38,21 +38,20 @@ dependencies {
     implementation "org.springframework:spring-jms:${springVersion}"
     implementation "progress.message:sonic_Client:${sonicMQVersion}"
 
-    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation "io.projectreactor:reactor-test"
 
-    testImplementation 'org.apache.activemq:activemq-core:5.7.0'
+    testImplementation "org.apache.activemq:activemq-core:5.7.0"
     testImplementation "com.github.tomakehurst:wiremock-standalone:2.24.1"
-    testImplementation 'org.awaitility:awaitility:4.0.3'
-    testImplementation 'org.awaitility:awaitility-proxy:3.1.6'
+    testImplementation "org.awaitility:awaitility:4.0.3"
 }
 
 swaggerSources {
     petStore {
-        inputFile = file('src/main/resources/pet_store_swagger.json')
+        inputFile = file("src/main/resources/pet_store_swagger.json")
         code {
             outputDir = file("$projectDir")
             wipeOutputDir = false
-            language = 'spring'
+            language = "spring"
             additionalProperties = [
                     "modelPackage": "ru.innotechnum.testlistener.gateway.petstore.model",
                     "apiPackage"  : "ru.innotechnum.testlistener.gateway.petstore.api"]

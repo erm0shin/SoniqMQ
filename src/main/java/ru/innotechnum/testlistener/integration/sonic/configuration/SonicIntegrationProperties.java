@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 @ConfigurationProperties(prefix = "sonic")
 @ConstructorBinding
 public class SonicIntegrationProperties {
+
     private final String brokerUrl;
     private final String requestQueue;
     private final String responseQueue;
@@ -39,4 +40,5 @@ public class SonicIntegrationProperties {
     public String getCorrelationId() {
         return correlationId;
     }
+
 }
